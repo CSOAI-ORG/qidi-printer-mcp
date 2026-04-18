@@ -1,0 +1,48 @@
+name: qidi-printer-mcp
+description: 'QIDI 3D Printer MCP server. Controls QIDI 4 Max Combo via Moonraker
+  REST API. Tools: printer status, temperatures, start/pause/resume/cancel print,
+  list files, send gcode, preheat. Built by MEOK AI Labs.'
+version: 1.0.0
+tools:
+- name: printer_status
+  description: Get full printer status including state, temperatures, and print progress.
+  parameters: []
+- name: get_temperatures
+  description: Get current bed and nozzle temperatures with targets.
+  parameters: []
+- name: start_print
+  description: Start printing a gcode file already uploaded to the printer.
+  parameters:
+  - name: filename
+    type: string
+    required: true
+- name: pause_print
+  description: Pause the current print job.
+  parameters: []
+- name: resume_print
+  description: Resume a paused print job.
+  parameters: []
+- name: cancel_print
+  description: Cancel the current print job.
+  parameters: []
+- name: list_files
+  description: List all gcode files uploaded to the printer.
+  parameters: []
+- name: send_gcode
+  description: Send a raw G-code command to the printer.
+  parameters:
+  - name: command
+    type: string
+    required: true
+- name: print_progress
+  description: Get current print progress percentage, elapsed time, and estimated remaining time.
+  parameters: []
+- name: preheat
+  description: Preheat the printer bed and nozzle to target temperatures.
+  parameters:
+  - name: bed_temp
+    type: integer
+    required: false
+  - name: nozzle_temp
+    type: integer
+    required: false
