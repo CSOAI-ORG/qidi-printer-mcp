@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "CSOAI-ORG/qidi-printer-mcp",
+  "version": "1.0.0",
+  "description": "Qidi Printer MCP Server by MEOK AI Labs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CSOAI-ORG/qidi-printer-mcp",
+    "source": "https://github.com/CSOAI-ORG/qidi-printer-mcp"
+  },
+  "packages": [
+    {
+      "registryType": "pypi",
+      "identifier": "qidi-printer-mcp",
+      "version": "1.0.0",
+      "runtimeHint": "python",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}
