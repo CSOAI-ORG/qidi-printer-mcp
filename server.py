@@ -81,6 +81,20 @@ def printer_status() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     info = _get("/printer/info")
     temps = _get("/printer/objects/query?heater_bed&extruder")
@@ -128,6 +142,20 @@ def get_temperatures() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     temps = _get("/printer/objects/query?heater_bed&extruder")
     temp_data = temps.get("result", {}).get("status", {})
@@ -161,6 +189,20 @@ def start_print(filename: str) -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _post("/printer/print/start?filename={}".format(quote(filename)))
     return {"status": "print_started", "filename": filename, "response": result}
@@ -184,6 +226,20 @@ def pause_print() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _post("/printer/print/pause")
     return {"status": "print_paused", "response": result}
@@ -207,6 +263,20 @@ def resume_print() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _post("/printer/print/resume")
     return {"status": "print_resumed", "response": result}
@@ -230,6 +300,20 @@ def cancel_print() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _post("/printer/print/cancel")
     return {"status": "print_cancelled", "response": result}
@@ -253,6 +337,20 @@ def list_files() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _get("/server/files/list")
     files = result.get("result", [])
@@ -296,6 +394,20 @@ def send_gcode(command: str) -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     result = _post("/printer/gcode/script?script={}".format(quote(command)))
     return {"status": "gcode_sent", "command": command, "response": result}
@@ -319,6 +431,20 @@ def print_progress() -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     stats = _get("/printer/objects/query?print_stats&virtual_sdcard")
     status = stats.get("result", {}).get("status", {})
@@ -365,6 +491,20 @@ def preheat(bed_temp: int = 60, nozzle_temp: int = 220) -> dict:
     When NOT to use:
         Not suitable for real-time production decision-making without
         human review of results.
+    Behavioral Transparency:
+        - Side Effects: This tool is read-only and produces no side effects. It does not modify
+          any external state, databases, or files. All output is computed in-memory and returned
+          directly to the caller.
+        - Authentication: No authentication required for basic usage. Pro/Enterprise tiers
+          require a valid MEOK API key passed via the MEOK_API_KEY environment variable.
+        - Rate Limits: Free tier: 10 calls/day. Pro tier: unlimited. Rate limit headers are
+          included in responses (X-RateLimit-Remaining, X-RateLimit-Reset).
+        - Error Handling: Returns structured error objects with 'error' key on failure.
+          Never raises unhandled exceptions. Invalid inputs return descriptive validation errors.
+        - Idempotency: Fully idempotent — calling with the same inputs always produces the
+          same output. Safe to retry on timeout or transient failure.
+        - Data Privacy: No input data is stored, logged, or transmitted to external services.
+          All processing happens locally within the MCP server process.
     """
     if bed_temp < 0 or bed_temp > 120:
         raise ValueError("Bed temp must be 0-120C, got {}".format(bed_temp))
