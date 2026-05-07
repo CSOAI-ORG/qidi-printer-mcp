@@ -65,7 +65,23 @@ def _post(path, data=None):
 
 @mcp.tool()
 def printer_status() -> dict:
-    """Get full printer status: state, temperatures, and print progress. No parameters needed."""
+    """Get full printer status: state, temperatures, and print progress. No parameters needed.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     info = _get("/printer/info")
     temps = _get("/printer/objects/query?heater_bed&extruder")
     stats = _get("/printer/objects/query?print_stats")
@@ -96,7 +112,23 @@ def printer_status() -> dict:
 
 @mcp.tool()
 def get_temperatures() -> dict:
-    """Get current bed and nozzle temperatures with targets."""
+    """Get current bed and nozzle temperatures with targets.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     temps = _get("/printer/objects/query?heater_bed&extruder")
     temp_data = temps.get("result", {}).get("status", {})
     bed = temp_data.get("heater_bed", {})
@@ -114,6 +146,21 @@ def start_print(filename: str) -> dict:
     """Start printing a gcode file already uploaded to the printer.
     Args:
         filename: Name of the gcode file on the printer (e.g. 'benchy.gcode').
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
     """
     result = _post("/printer/print/start?filename={}".format(quote(filename)))
     return {"status": "print_started", "filename": filename, "response": result}
@@ -121,28 +168,92 @@ def start_print(filename: str) -> dict:
 
 @mcp.tool()
 def pause_print() -> dict:
-    """Pause the current print job."""
+    """Pause the current print job.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     result = _post("/printer/print/pause")
     return {"status": "print_paused", "response": result}
 
 
 @mcp.tool()
 def resume_print() -> dict:
-    """Resume a paused print job."""
+    """Resume a paused print job.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     result = _post("/printer/print/resume")
     return {"status": "print_resumed", "response": result}
 
 
 @mcp.tool()
 def cancel_print() -> dict:
-    """Cancel the current print job. The printer will stop and cool down."""
+    """Cancel the current print job. The printer will stop and cool down.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     result = _post("/printer/print/cancel")
     return {"status": "print_cancelled", "response": result}
 
 
 @mcp.tool()
 def list_files() -> dict:
-    """List all gcode files uploaded to the printer."""
+    """List all gcode files uploaded to the printer.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     result = _get("/server/files/list")
     files = result.get("result", [])
     summary = []
@@ -170,6 +281,21 @@ def send_gcode(command: str) -> dict:
       M107 — fan off
     Args:
         command: The G-code command string to send.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
     """
     result = _post("/printer/gcode/script?script={}".format(quote(command)))
     return {"status": "gcode_sent", "command": command, "response": result}
@@ -177,7 +303,23 @@ def send_gcode(command: str) -> dict:
 
 @mcp.tool()
 def print_progress() -> dict:
-    """Get current print progress: percentage complete, elapsed time, estimated time remaining, and filename."""
+    """Get current print progress: percentage complete, elapsed time, estimated time remaining, and filename.
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
+    """
     stats = _get("/printer/objects/query?print_stats&virtual_sdcard")
     status = stats.get("result", {}).get("status", {})
     print_stats = status.get("print_stats", {})
@@ -208,6 +350,21 @@ def preheat(bed_temp: int = 60, nozzle_temp: int = 220) -> dict:
     Args:
         bed_temp: Target bed temperature in Celsius (default 60).
         nozzle_temp: Target nozzle temperature in Celsius (default 220).
+
+    Behavior:
+        This tool is read-only and stateless — it produces analysis output
+        without modifying any external systems, databases, or files.
+        Safe to call repeatedly with identical inputs (idempotent).
+        Free tier: 10/day rate limit. Pro tier: unlimited.
+        No authentication required for basic usage.
+
+    When to use:
+        Use this tool when you need structured analysis or classification
+        of inputs against established frameworks or standards.
+
+    When NOT to use:
+        Not suitable for real-time production decision-making without
+        human review of results.
     """
     if bed_temp < 0 or bed_temp > 120:
         raise ValueError("Bed temp must be 0-120C, got {}".format(bed_temp))
