@@ -1,3 +1,5 @@
+[![qidi-printer-mcp MCP server](https://glama.ai/mcp/servers/CSOAI-ORG/qidi-printer-mcp/badges/card.svg)](https://glama.ai/mcp/servers/CSOAI-ORG/qidi-printer-mcp)
+
 <div align="center">
 
 [![GitHub stars](https://img.shields.io/github/stars/CSOAI-ORG/qidi-printer-mcp)](https://github.com/CSOAI-ORG/qidi-printer-mcp/stargazers)
