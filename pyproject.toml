@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 [project]
 name = "qidi-printer-mcp"
-version = "1.0.3"
+version = "1.0.4"
 readme = "README.md"
 description = "QIDI 3D Printer MCP server. Controls QIDI 4 Max Combo via Moonraker REST API. Tools: printer status, temperatures, start/pause/resume/cancel print, list files, send gcode, preheat. Built by MEOK AI Labs."
 license = {file = "LICENSE"}
