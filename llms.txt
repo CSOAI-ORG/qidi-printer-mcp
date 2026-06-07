@@ -1,0 +1,51 @@
+# qidi-printer-mcp
+# Controls QIDI 4 Max Combo (and other Klipper/Moonraker printers) via Moonraker REST API.
+
+## Install
+```bash
+pip install qidi-printer-mcp
+```
+
+## Auth & Rate Limits
+- Free tier: 10 calls/day. No API key required.
+- Pro tier (£79/mo): unlimited + signed attestations.
+- Enterprise (£1,499/mo): white-label.
+
+## Tools
+
+### `printer_status`
+Get full printer status: state, temperatures, and print progress. No parameters needed.
+
+### `get_temperatures`
+Get current bed and nozzle temperatures with targets.
+
+### `start_print`
+Start printing a gcode file already uploaded to the printer.
+
+### `pause_print`
+Pause the current print job.
+
+### `resume_print`
+Resume a paused print job.
+
+### `cancel_print`
+Cancel the current print job. The printer will stop and cool down.
+
+### `list_files`
+List all gcode files uploaded to the printer.
+
+### `send_gcode`
+Send a raw G-code command to the printer.
+
+### `print_progress`
+Get current print progress: percentage complete, elapsed time, estimated time remaining, and filename.
+
+### `preheat`
+Preheat the printer bed and nozzle to target temperatures.
+
+
+## Maintainer
+MEOK AI Labs · hello@meok.ai · https://meok.ai · MIT licensed
+
+## Pairs with
+Governance moat: pair this tool with any of MEOK's 38 governance MCPs (EU AI Act, DORA, NIS2, CRA, GDPR, ISO 42001, etc.) for full compliance coverage.

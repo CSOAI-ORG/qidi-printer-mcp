@@ -1,0 +1,43 @@
+{
+  "name": "qidi-printer-mcp",
+  "title": "Qidi Printer Mcp",
+  "description": "QIDI 3D Printer MCP server. Controls QIDI 4 Max Combo via Moonraker REST API. Tools: printer status, temperatures, start/pause/resume/cancel print, list files, send gcode, preheat. Built by MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "printer_status"
+    },
+    {
+      "name": "get_temperatures"
+    },
+    {
+      "name": "start_print"
+    },
+    {
+      "name": "pause_print"
+    },
+    {
+      "name": "resume_print"
+    },
+    {
+      "name": "cancel_print"
+    },
+    {
+      "name": "list_files"
+    },
+    {
+      "name": "send_gcode"
+    },
+    {
+      "name": "print_progress"
+    },
+    {
+      "name": "preheat"
+    }
+  ]
+}

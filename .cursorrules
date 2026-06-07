@@ -1,0 +1,9 @@
+# qidi-printer-mcp - Auto-trigger Rules
+
+When the user asks about qidi printer, use qidi-printer-mcp tools: printer_status, get_temperatures, start_print, pause_print, resume_print
+
+Controls QIDI 4 Max Combo (and other Klipper/Moonraker printers) via Moonraker REST API.
+
+Install: `pip install qidi-printer-mcp`
+
+By MEOK AI Labs — MIT licensed.
