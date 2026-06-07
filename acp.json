@@ -1,0 +1,28 @@
+{
+  "acpVersion": "0.1",
+  "agent": {
+    "name": "qidi-printer-mcp",
+    "description": "Qidi Printer MCP Server by MEOK AI Labs",
+    "version": "1.0.6",
+    "provider": "MEOK AI Labs",
+    "interfaces": [
+      {
+        "type": "mcp",
+        "transport": "stdio",
+        "package": "qidi-printer-mcp"
+      }
+    ],
+    "capabilities": [
+      "printer_status",
+      "get_temperatures",
+      "start_print",
+      "pause_print",
+      "resume_print",
+      "cancel_print",
+      "list_files",
+      "send_gcode",
+      "print_progress",
+      "preheat"
+    ]
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "name": "qidi-printer-mcp",
+  "description": "Qidi Printer MCP Server by MEOK AI Labs",
+  "url": "https://proofof.ai/scorecard/qidi-printer-mcp.html",
+  "version": "1.0.6",
+  "protocolVersion": "0.2.0",
+  "provider": {
+    "organization": "MEOK AI Labs",
+    "url": "https://meok.ai"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "text"
+  ],
+  "defaultOutputModes": [
+    "text"
+  ],
+  "skills": [
+    {
+      "id": "printer_status",
+      "name": "Printer Status",
+      "description": "printer_status via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "get_temperatures",
+      "name": "Get Temperatures",
+      "description": "get_temperatures via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "start_print",
+      "name": "Start Print",
+      "description": "start_print via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "pause_print",
+      "name": "Pause Print",
+      "description": "pause_print via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "resume_print",
+      "name": "Resume Print",
+      "description": "resume_print via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "cancel_print",
+      "name": "Cancel Print",
+      "description": "cancel_print via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "list_files",
+      "name": "List Files",
+      "description": "list_files via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "send_gcode",
+      "name": "Send Gcode",
+      "description": "send_gcode via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "print_progress",
+      "name": "Print Progress",
+      "description": "print_progress via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    },
+    {
+      "id": "preheat",
+      "name": "Preheat",
+      "description": "preheat via qidi-printer-mcp",
+      "tags": [
+        "mcp",
+        "compliance"
+      ]
+    }
+  ]
+}
