@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "qidi-printer-mcp": {
+      "command": "uvx",
+      "args": [
+        "qidi-printer-mcp"
+      ]
+    }
+  }
+}
