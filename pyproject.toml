@@ -16,13 +16,13 @@ classifiers = [
     "Operating System :: OS Independent",
     "Topic :: Software Development :: Libraries",
 ]
-dependencies = ["mcp>=1.0.0"]
+dependencies = ["mcp>=2.0.0"]
 [project.urls]
 Homepage = "https://meok.ai"
 Repository = "https://github.com/CSOAI-ORG/qidi-printer-mcp"
 [tool.hatch.build.targets.wheel]
 packages = ["."]
-only-include = ["server.py"]
+only-include = ["server.py", "mcp2026_shim.py"]
 
 [project.scripts]
 qidi_printer_mcp = "server:main"
